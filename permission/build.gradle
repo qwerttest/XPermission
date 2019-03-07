@@ -46,6 +46,7 @@ ext {
     //要发布的版本号
     libraryVersion = '1.0.2'
 
+
     //发布者的信息
     developerId = 'jin'
     developerName = 'jin'
