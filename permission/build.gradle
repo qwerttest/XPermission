@@ -3,14 +3,12 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 23
 
-
     packageBuildConfig false
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
-
     }
 
     buildTypes {
@@ -28,12 +26,37 @@ dependencies {
         transitive = false
     }
 }
+ext {
+    //项目地址
+    siteUrl = 'https://github.com/qwerttest/XPermission'
+    //项目下载地址
+    gitUrl = 'https://github.com/qwerttest/XPermission.git'
 
-USERNAME = 'chunyang'
-PASSWORD = 'chunyang'
-NAME = 'XPermission'
-VERSION = '1.0.6-SNAPSHOT'
-ARTIFACT_ID = 'x-permission'
-apply from: 'http://chunyang1988.com/nexus_upload.gradle'
+    //要发布的仓库，需要在jCenter中创建
+    bintrayRepo = 'maven'
+    //在maven仓库中创建的工程的名字
+    bintrayName = 'permission'
+    //要发布到的group的标识，使用module包名即可
+    publishedGroupId = 'com.jin.library'
+    //libraryName, artifact, moduleName必须保持一致
+    libraryName = 'permission'
+    //artifactId 要发布的工程的标识
+    artifact = 'permission'
+    libraryDescription = 'this is a test'//项目描述
+    //要发布的版本号
+    libraryVersion = '1.0.2'
+
+    //发布者的信息
+    developerId = 'jin'
+    developerName = 'jin'
+    developerEmail = 'wj19890810@gmail.com'
+
+    //许可信息，不用修改
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from:'upload.gradle'
 
 
