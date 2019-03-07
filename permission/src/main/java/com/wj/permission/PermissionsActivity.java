@@ -323,4 +323,10 @@ public class PermissionsActivity extends AppCompatActivity {
             window.setStatusBarColor(Color.TRANSPARENT);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        sRequestListener = null;
+    }
 }
