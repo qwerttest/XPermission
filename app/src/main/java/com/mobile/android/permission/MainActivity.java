@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.wj.base.util.DeviceUtils;
 import com.wj.permission.PermissionListener;
 import com.wj.permission.XPermission;
 
@@ -140,14 +141,14 @@ public class MainActivity extends AppCompatActivity {
         XPermission.requestPermission(this, new PermissionListener() {
             @Override
             public void permissionGranted(@NonNull String[] permission) {
-                Toast.makeText(MainActivity.this, "权限：获取到", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "权限：获取到=" + DeviceUtils.imei(MainActivity.this), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void permissionDenied(@NonNull String[] permission) {
                 Toast.makeText(MainActivity.this, "权限：没有获取到", Toast.LENGTH_SHORT).show();
             }
-        }, Manifest.permission.CAMERA);
+        }, Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
 //        AndPermission.with(this).overlay().onDenied(new Action<Void>() {
 //            @Override
