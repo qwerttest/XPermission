@@ -8,5 +8,19 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/Permission_NoTitleTranslucentTheme" />
+
+        <activity
+            android:name="com.yanzhenjie.permission.bridge.BridgeActivity"
+            android:theme="@style/Permission.Theme"/>
+
+        <provider
+            android:name="com.yanzhenjie.permission.FileProvider"
+            android:authorities="${applicationId}.file.path.share"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/permission_file_paths"/>
+        </provider>
     </application>
 </manifest>

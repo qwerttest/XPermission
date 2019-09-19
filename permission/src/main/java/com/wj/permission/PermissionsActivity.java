@@ -198,7 +198,7 @@ public class PermissionsActivity extends AppCompatActivity {
     }
 
     private void setting() {
-        AndPermission.with(this).runtime().setting().start();
+        AndPermission.with(this).runtime().setting().start(1);
     }
 
     private void requestPermissions() {
