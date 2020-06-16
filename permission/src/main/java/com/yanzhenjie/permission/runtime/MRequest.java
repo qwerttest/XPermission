@@ -17,6 +17,7 @@ package com.yanzhenjie.permission.runtime;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import com.yanzhenjie.permission.Action;
@@ -116,6 +117,11 @@ class MRequest implements PermissionRequest, RequestExecutor, BridgeRequest.Call
 
     @Override
     public void onCallback() {
+        if (mSource == null || (mSource != null && ((FragmentActivity) mSource.getContext()).isFinishing())) {
+            List<String> permissionList = asList(mPermissions);
+            callbackFailed(permissionList);
+            return;
+        }
         new AsyncTask<Void, Void, List<String>>() {
             @Override
             protected List<String> doInBackground(Void... voids) {
@@ -129,6 +135,7 @@ class MRequest implements PermissionRequest, RequestExecutor, BridgeRequest.Call
                 } else {
                     callbackFailed(deniedList);
                 }
+                cancel(true);
             }
         }.execute();
     }

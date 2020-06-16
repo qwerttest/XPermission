@@ -95,6 +95,9 @@ final class RequestExecutor extends Thread implements Messenger.Callback {
         synchronized (this) {
             mMessenger.unRegister();
             mRequest.getCallback().onCallback();
+            if (mQueue != null && mQueue.size() > 0) {
+                mQueue.clear();
+            }
             notify();
         }
     }
