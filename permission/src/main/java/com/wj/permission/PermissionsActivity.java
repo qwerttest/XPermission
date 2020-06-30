@@ -325,8 +325,8 @@ public class PermissionsActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void finish() {
         sRequestListener = null;
+        super.finish();
     }
 }
