@@ -53,7 +53,7 @@ ext {
     artifact = 'permission'
     libraryDescription = 'this is a test'//项目描述
     //要发布的版本号
-    libraryVersion = '1.0.4'
+    libraryVersion = '1.0.5'
 
 
     //发布者的信息
